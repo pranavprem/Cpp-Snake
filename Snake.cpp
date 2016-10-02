@@ -183,7 +183,7 @@ bool islose(snake *snake){
      for(i=0; snake[i].dir!=-1; ++i)
                   {
                   
-             if(snake[i].x<0 || snake[i].y<0 || snake[i].x>max || snake[i].y>max){
+             if(snake[i].x<0 || snake[i].y<0 || snake[i].x>(max-1) || snake[i].y>(max-1)){
                              outtextxy(max/2,max/2,"LOSER SNAKE");
                              return true;
                              }
