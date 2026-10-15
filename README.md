@@ -12,7 +12,7 @@ The board is a 15×15 grid. Each cell is 20 pixels, so the picture is 300×300, 
 
 - **W A S D** or the arrow keys steer. Esc, or closing the window, quits.
 - Leaves appear on their own. Eating one grows the snake, adds 50 points, and speeds the game up.
-- Running into a wall or into your own body loses.
+- Running into a wall or into your own body loses. A bite is checked on that same frame, so if the new tail would sit outside the board, that bite is a loss too. The 2016 code did the checks in that order.
 - Growing past 10 segments wins. That is 11 segments in all, eight leaves from the starting length of three, and a score of 400.
 
 Movement starts at one cell per second (`delay(1000 - score)`). Each leaf shaves 50ms off that wait. Past a score of 900 the wait would drop to 100ms, which a normal game never reaches because it ends at 400.
