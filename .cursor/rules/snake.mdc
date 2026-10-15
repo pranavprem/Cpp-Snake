@@ -1,0 +1,8 @@
+---
+description: How to work on this Snake repo
+alwaysApply: true
+---
+
+Read AGENTS.md before editing. It is the source of truth for commands, the turn-cache movement model, and what should stay put.
+
+Keep the 15×15 board, 20-pixel cells, leaf fruit, and per-segment turn cache. `make test` must pass. Do not commit binaries or add a license.

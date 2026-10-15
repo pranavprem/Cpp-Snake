@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install compiler and SDL2
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            g++ make pkg-config libsdl2-dev clang-format
+
+      - name: Check formatting
+        run: make check-format
+
+      - name: Build and test
+        run: make test CXXFLAGS="-std=c++17 -Wall -Wextra -Wpedantic -Werror -O2"
